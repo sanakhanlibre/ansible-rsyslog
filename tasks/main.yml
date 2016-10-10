@@ -1,0 +1,21 @@
+---
+- name: Update apt cache.
+  apt: update_cache=yes cache_valid_time=86400
+
+- name: Ensure rsyslog is installed.
+  with_items:
+    - rsyslog
+    - rsyslog-gnutls
+  apt: name={{ item }} state=installed
+
+- name: Create work directory for rsyslog
+  file: path=/etc/rsyslog.d/work state=directory
+  
+- name: Create main rsyslog configuration
+  template:
+    src="rsyslog.conf.j2"
+    dest="{{rsyslog_conf_file}}"
+    owner="{{rsyslog_user}}"
+    group="{{rsyslog_group}}"
+  notify:
+  - restart rsyslog
