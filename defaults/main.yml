@@ -9,7 +9,7 @@ rsyslog_group: "root"
 
 rsyslog_tcp: True
 rsyslog_tcp_port: 514
-
+rsyslog_default_template: RSYSLOG_TraditionalFileFormat 
 #rsyslog_server_logging_udp: example.fr
 #rsyslog_server_logging_udp_port: 5253
 
