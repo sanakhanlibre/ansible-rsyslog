@@ -21,7 +21,16 @@ $InputTCPServerRun {{ rsyslog_tcp_port }}{% else %}{% endif %}
 # Use traditional timestamp format.
 # To enable high precision timestamps, comment out the following line.
 
+{% if rsyslog_parameters is defined %}
+{{rsyslog_parameters}}
+{% else %}
+{% endif %}
+
+{% if rsyslog_default_template is defined %}
+$ActionFileDefaultTemplate {{ rsyslog_default_template }}
+{% else %}
 $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+{% endif %}
 
 # Set the default permissions for all log files.
 
