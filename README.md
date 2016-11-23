@@ -40,7 +40,8 @@ To enable it, `ca_certificate` must be defined.
 
     rsyslog_tcp: True
     rsyslog_tcp_port: 514
-
+    rsyslog_default_template: test
+    
     rsyslog_parameters: |
     
     rsyslog_server_logging_udp: example.fr
