@@ -7,9 +7,6 @@
     - rsyslog
     - rsyslog-gnutls
   apt: name={{ item }} state=installed
-
-- name: Create work directory for rsyslog
-  file: path=/etc/rsyslog.d/work state=directory
   
 - name: Create main rsyslog configuration
   template:
