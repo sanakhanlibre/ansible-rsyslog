@@ -46,11 +46,11 @@ To enable it, `ca_certificate` must be defined.
     
         module(load="imfile")   # provides kernel logging support
     	input (type="imfile"
-	File="/var/log/*test.log"
-	Tag="test-log"
-	Severity="info"
-	Facility="local3"
-	addMetadata="on")
+		File="/var/log/*test.log"
+		Tag="test-log"
+		Severity="info"
+		Facility="local3"
+		addMetadata="on")
 
     	$template test,"%TIMESTAMP% %HOSTNAME% %APP-NAME% [%$!metadata!filename%]: %msg%\n"
 	
