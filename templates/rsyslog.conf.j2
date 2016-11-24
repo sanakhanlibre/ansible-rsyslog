@@ -126,11 +126,11 @@ $ActionSendStreamDriverMode 0 # run driver in clear text
 #### REMOTE LOGGING ####
 {% if rsyslog_server_logging_udp is defined %}
 ## send logs via @udp
-*.* @{{ rsyslog_server_logging_udp }}:{{ rsyslog_server_logging_udp_port }}{% else %}
+*.* @{{ rsyslog_server_logging_udp }}:{{ rsyslog_server_logging_udp_port }}{% if rsyslog_server_udp_send_with_template is defined %};{{ rsyslog_server_udp_send_with_template }}{% else %}{% endif %}{% else %}
 
 {% endif %}
 {% if rsyslog_server_logging_tcp is defined %}
 ## send logs via @@tcp
-*.* @@{{ rsyslog_server_logging_tcp }}:{{ rsyslog_server_logging_tcp_port }}{% else %}
+*.* @@{{ rsyslog_server_logging_tcp }}:{{ rsyslog_server_logging_tcp_port }}{% if rsyslog_server_tcp_send_with_template is defined %};{{ rsyslog_server_tcp_send_with_template }}{% else %}{% endif %}{% else %}
 
 {% endif %}
