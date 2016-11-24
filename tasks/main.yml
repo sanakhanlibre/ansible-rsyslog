@@ -5,7 +5,6 @@
 - name: Ensure rsyslog is installed.
   with_items:
     - rsyslog
-    - rsyslog-gnutls
   apt: name={{ item }} state=installed
   
 - name: Create main rsyslog configuration
