@@ -21,11 +21,6 @@ Currently the module was only tested on Debian.
  * `rsyslog_user`: the owner group of `rsyslog.conf`
  * `rsyslog_group`: the owner user of `rsyslog.conf`
 
-Optional:
- * `ca_certificate`: string, the root ca certificate to verify server log certificate.
-
-Almost all of them has default values in `defaults/main.yml`.
-
 
 ### Specific variables
 
@@ -40,7 +35,7 @@ To enable it, `ca_certificate` must be defined.
 
     rsyslog_tcp: True
     rsyslog_tcp_port: 514
-    rsyslog_default_template: test
+    rsyslog_default_template: RSYSLOG_TraditionalFileFormat
     
     rsyslog_parameters: |
     
@@ -60,9 +55,13 @@ To enable it, `ca_certificate` must be defined.
     
     rsyslog_server_logging_tcp: example.fr
     rsyslog_server_logging_tcp_port: 2992
+
+    rsyslog_server_tcp_send_with_template: test
+    rsyslog_server_tcp_send_with_template: test
     
     ca_certificate: True
     ca_certificate_path: /etc/ssl/certs/ca-cert.pem
+    
 ```
 
   
