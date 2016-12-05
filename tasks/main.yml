@@ -6,12 +6,20 @@
   with_items:
     - rsyslog
   apt: name={{ item }} state=installed
-  
-- name: Create main rsyslog configuration
+
+- name: Copy main rsyslog configuration
   template:
-    src="rsyslog.conf.j2"
+    src="rsyslog.conf"
     dest="{{rsyslog_conf_file}}"
     owner="{{rsyslog_user}}"
     group="{{rsyslog_group}}"
+
+- name: Create a custom rsyslog configuration
+  template:
+    src="rsyslog.d/config.j2"
+    dest="{{ rsyslog_d_dir }}/more-configuration.conf"
+    owner="{{rsyslog_user}}"
+    group="{{rsyslog_group}}"
+    mode="0644"
   notify:
   - restart rsyslog
