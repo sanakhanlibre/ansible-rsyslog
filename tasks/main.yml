@@ -21,5 +21,9 @@
     owner="{{rsyslog_user}}"
     group="{{rsyslog_group}}"
     mode="0644"
+
+- name: Restart rsyslog
+  service: name=rsyslog state=restarted
   notify:
-  - restart rsyslog
+    - restart rsyslog
+...
