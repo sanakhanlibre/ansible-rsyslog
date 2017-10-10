@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: d2si
+  author: Evens SOLIGNAC
   description: Role Ansible for rsyslog
   license: MIT
   min_ansible_version: 1.9
