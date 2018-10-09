@@ -3,9 +3,7 @@
   apt: update_cache=yes cache_valid_time=86400
 
 - name: Ensure rsyslog is installed.
-  with_items:
-    - rsyslog
-  apt: name={{ item }} state=installed
+  apt: name=rsyslog state=installed
 
 - name: Copy main rsyslog configuration
   template:
