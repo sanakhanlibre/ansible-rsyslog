@@ -19,7 +19,9 @@
     owner="{{rsyslog_user}}"
     group="{{rsyslog_group}}"
     mode="0644"
+  register: rsyslog_template
 
 - name: Restart rsyslog
   service: name=rsyslog state=restarted
+  when: rsyslog_template.changed
 ...
